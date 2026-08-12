@@ -1,4 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+.playfair-display-title {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bodoni-moda-title {
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.cinzel-title {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.inter-body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.montserrat-body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --lightCrema: #f4f1ea;
+    --forestGreen: #1B3B2B;
+    --darkBrown: #2B221E;
+    --carmel: #C28E5F;
+    --lightBeige: #EAE5DD;
+}
+
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
 h1 {
     background-color: aquamarine;
-    color: red;
+    color: var(--carmel);
+    font-family: 'Inter';
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    background-color: var(--lightBeige);
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    position: fixed;
+    background-color: var(--carmel);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#title{
+    display: flex;
+    margin-left: 10px;
+}
+
+#title-img{
+    width: 75px;
+    margin-right: 10px;
+    background-color: var(--lightCrema);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#title-text{
+    font-family: 'Playfair Display';
+    font-weight: 600;
+    font-size: 40px;
+    max-width: 240px;
+    text-align: center;
+    line-height: 40px;
+    color: var(--lightCrema);
 }

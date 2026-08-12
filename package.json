@@ -4,7 +4,11 @@
   "description": "app de inventario de una tienda utilizando node, express, postgreSQL y ejs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev:server": "nodemon -e js,ejs app.js",
+    "dev:browser": "browser-sync start --proxy 'localhost:3000' --files 'views/**/*' 'public/**/*'",
+    "dev": "npm-run-all --parallel dev:server dev:browser"
   },
   "repository": {
     "type": "git",
@@ -19,9 +23,15 @@
   },
   "homepage": "https://github.com/Luis200283/Inventory-App#readme",
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
     "pq": "^0.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "nodemon": "^3.1.14"
   }
 }

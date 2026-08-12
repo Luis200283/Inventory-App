@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <title>Inventory App</title>
 </head>
+
 <body>
     <header id="header">
         <div id="title">
@@ -15,5 +17,103 @@
             <img src="/icons/clave.png" alt="">
         </div>
     </header>
+    <div id="new-product">
+        <h2>Add product</h2>
+        <a id="add-button" href="/">Add</a>
+    </div>
+    <div id="main">
+        <div id="menu">
+            <form action="">
+                <h3>Sort By Price</h3>
+                <div class="filters">
+                    <input type="checkbox" name="Ascending" id="asc">
+                    <Label for="Ascending">Ascendong</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Descending" id="desc">
+                    <Label for="Descending">Descending</Label>
+                </div>
+            </form>
+
+            <form action="">
+                <h3>Filter by Categories</h3>
+                <div class="filters">
+                    <input type="checkbox" name="Guitar" id="Guitar">
+                    <Label for="Guitar">Guitar</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Piano" id="Piano">
+                    <Label for="Piano">Piano</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Drum" id="Drum">
+                    <Label for="Drum">Drum</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Trumpet" id="Trumpet">
+                    <Label for="Trumpet">Trumpet</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Violin" id="Violin">
+                    <Label for="Violin">Violin</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Flute" id="Flute">
+                    <Label for="Flute">Flute</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Bass" id="Bass">
+                    <Label for="Bass">Bass</Label>
+                </div>
+            </form>
+
+            <form action="">
+                <h3>Filter By Brand</h3>
+                <div class="filters">
+                    <input type="checkbox" name="Fender" id="Fender">
+                    <Label for="Fender">Fender</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Ibanez" id="Ibanez">
+                    <Label for="Ibanez">Ibanez</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Map" id="Map">
+                    <Label for="Map">Map</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Dandree" id="Dandree">
+                    <Label for="Dandree">Dandree</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Yamaha" id="Yamaha">
+                    <Label for="Yamaha">Yamaha</Label>
+                </div>
+                <div class="filters">
+                    <input type="checkbox" name="Casio" id="Casio">
+                    <Label for="Casio">Casio</Label>
+                </div>
+            </form>
+        </div>
+        <ul id="products-list">
+            <% products.forEach(product => { %>
+            <li class="product-card">
+                <div class="product-img-container"><img class="product-img" src="<%= product.imgPath %>"></div>
+                <ul>
+                    <li><%= product.product_name %></li>
+                    <li>color: <%= product.color %></li>
+                    <li>Marca: <%= product.brand %></li>
+                    <li>precio: <div class="product-tag"><%= product.price %>$</div>
+                    </li>
+                    <li>decripcion: <div class="product-description"><%= product.description %></div>
+                    </li>
+                    <li>tag: <div class="product-tag"><%= product.tag %></div>
+                    </li>
+                </ul>
+            </li>
+            <% }); %>
+        </ul>
+    </div>
 </body>
+
 </html>

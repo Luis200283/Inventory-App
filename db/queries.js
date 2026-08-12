@@ -1,6 +1,6 @@
 import { sql } from "./pool.js";
 
-export async function getAllUsers() {
+export async function getAllProducts() {
     return await sql`SELECT * FROM products`
 }
 

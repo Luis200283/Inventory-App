@@ -1,3 +1,6 @@
+import { getAllProducts } from '../db/queries.js'
+
 export const indexController = async (req, res) => {
-    res.render('index')
+    const products = await getAllProducts()
+    res.render('index', { products: products })
 }

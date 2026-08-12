@@ -2,7 +2,7 @@
 app de inventario de una tienda utilizando node, express, postgreSQL y ejs   
 
 
-Consejo para el futuro: para crear un live server en extres ejecutar ese comando en la consola :
+Consejo para el futuro: para crear un live server en express ejecutar ese comando en la consola :
 
 ```
 npm install --save-dev nodemon browser-sync npm-run-all

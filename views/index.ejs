@@ -19,23 +19,21 @@
     </header>
     <div id="new-product">
         <h2>Add product</h2>
-        <a id="add-button" href="/">Add</a>
+        <a id="add-button" href="/new">Add</a>
     </div>
     <div id="main">
         <div id="menu">
-            <form action="">
+            <form action="/filter">
                 <h3>Sort By Price</h3>
                 <div class="filters">
-                    <input type="checkbox" name="Ascending" id="asc">
-                    <Label for="Ascending">Ascendong</Label>
+                    <input type="radio" name="Sort" id="asc" value="1">
+                    <Label for="Ascending">Ascending</Label>
                 </div>
                 <div class="filters">
-                    <input type="checkbox" name="Descending" id="desc">
+                    <input type="radio" name="Sort" id="desc" value="2">
                     <Label for="Descending">Descending</Label>
                 </div>
-            </form>
 
-            <form action="">
                 <h3>Filter by Categories</h3>
                 <div class="filters">
                     <input type="checkbox" name="Guitar" id="Guitar">
@@ -65,9 +63,7 @@
                     <input type="checkbox" name="Bass" id="Bass">
                     <Label for="Bass">Bass</Label>
                 </div>
-            </form>
 
-            <form action="">
                 <h3>Filter By Brand</h3>
                 <div class="filters">
                     <input type="checkbox" name="Fender" id="Fender">
@@ -93,6 +89,8 @@
                     <input type="checkbox" name="Casio" id="Casio">
                     <Label for="Casio">Casio</Label>
                 </div>
+
+                <button type="submit" id="applyFiltersButton">Apply Filters</button>
             </form>
         </div>
         <ul id="products-list">

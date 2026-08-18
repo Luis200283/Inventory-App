@@ -4,28 +4,22 @@ export async function getAllProducts() {
     return await sql`SELECT * FROM products`
 }
 
-export async function getFilteresData (query) {
-    return await sql `SELECT * FROM products WHERE tag = 'guitar'`
+export async function getFilteresData(query) {
+    const { Sort, Instrument, Brands } = query;
+
+    const instruments = Instrument ? (Array.isArray(Instrument) ? Instrument : [Instrument]) : [];
+    const brands = Brands ? (Array.isArray(Brands) ? Brands : [Brands]) : [];
+
+    const hasInstruments = instruments.length > 0;
+    const hasBrands = brands.length > 0;
+    const sortDirection = Sort?.toLowerCase() === 'desc' ? 'DESC' : 'ASC';
+
+    return await sql`
+        SELECT * FROM products 
+        WHERE (${!hasInstruments} OR tag = ANY(${instruments}))
+          AND (${!hasBrands} OR brand = ANY(${brands}))
+        ORDER BY price ${sql.unsafe(Sort)}
+    `;
 }
 
-// export async function getUser(query) {
-//     return await sql`SELECT * FROM products WHERE username LIKE '${query}%'`
-// }
-
-// export async function postProduct(product) {
-//     await sql`INSERT INTO products (username, message) 
-//     VALUES (${product.username}, ${product.message})`;
-// }
-
-// export async function putProduct(product, id) {
-//     await sql`UPDATE products 
-//     SET username = ${product.name}, 
-//     message = ${product.message} 
-//     WHERE id = ${id}
-//     RETURNING *;`
-// }
-
-// export async function deleteMessageInDB(id) {
-//     await sql`DELETE FROM products WHERE id = ${id}`
-// }
 

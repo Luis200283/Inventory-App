@@ -4,11 +4,12 @@ import { getAllProducts, getFilteresData } from '../db/queries.js'
 export const indexController = async (req, res) => {
     const products = await getAllProducts()
     res.render('index', { products: products })
+
 }
 
 export const queryController = async (req, res) => {
-    const query =  req.params
-    console.log(req)
-    const result = await getFilteresData();
-    res.render('index', {products: result})
+    const result = await getFilteresData(req.query);
+    res.render('index', {
+        products: result,
+    })
 }

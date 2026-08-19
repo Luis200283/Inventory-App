@@ -22,4 +22,6 @@ export async function getFilteresData(query) {
     `;
 }
 
-
+export async function addProduct(productFears, productImg) {
+    console.log(productFears)
+}

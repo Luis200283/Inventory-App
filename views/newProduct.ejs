@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/newProduct.css">
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <title>Inventory App</title>
 </head>
@@ -17,18 +17,48 @@
             <img src="/icons/clave.png" alt="">
         </div>
     </header>
-    <div id="new-product">
-        <h2>Add product</h2>
-        <a id="add-button" href="/">Add</a>
-    </div>
-    <div id="newProductForm">
-        <Form>
-            <!-- <div class="filters">
-                <input type="checkbox" name="Ascending" id="asc">
-                <Label for="Ascending">Ascendong</Label>
-            </div> -->
+    <br>
+    <div id="newProduct">
+        <Form method="post" action="/new">
+            <div id="newProductForm">
+                <div class="productFears">
+                    <Label for="product_name">Product Name</Label>
+                    <input type="Text" name="product" id="product_name" placeholder="Electric guitar">
+                </div>
+                <div class="productFears">
+                    <Label for="color">Color</Label>
+                    <input type="Text" name="color" id="color" placeholder="red">
+                </div>
+                <div class="productFears">
+                    <Label for="brand">Brand</Label>
+                    <input type="Text" name="brand" id="brand" placeholder="Fender">
+                </div>
+                <div class="productFears">
+                    <Label for="price">Price</Label>
+                    <input type="number" name="price" id="price" placeholder="0">
+                </div>
+                <div class="productFears">
+                    <Label for="description">Description</Label>
+                    <textarea name="description" id="decripcion" placeholder="this is a clasisc guitar"></textarea>
+                </div>
+                <div class="productFears">
+                    <label for="colores">Tag:</label>
+                    <select name="tag" id="tag">
+                        <option value="guitar">guitar</option>
+                        <option value="piano">piano</option>
+                        <option value="Drum">Drum</option>
+                        <option value="Bass">Bass</option>
+                    </select>
+                </div>
+                <button type="submit">Add Product +</button>
+            </div>
+            <div id="newProductImg">
+                <label for="productImg">📤 <br> Subir Imagen</label>
+                <input type="file" name="productImg" id="productImg" required>
+            </div>
         </Form>
     </div>
+
 </body>
 
 </html>

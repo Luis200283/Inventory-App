@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.playfair-display-title {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bodoni-moda-title {
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.cinzel-title {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.inter-body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.montserrat-body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --lightCrema: #f4f1ea;
+    --forestGreen: #1B3B2B;
+    --darkBrown: #2B221E;
+    --carmel: #C28E5F;
+    --lightBeige: #EAE5DD;
+}
+
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 {
+    background-color: aquamarine;
+    color: var(--carmel);
+    font-family: 'Inter';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--lightBeige);
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background-color: var(--carmel);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#title {
+    display: flex;
+    margin-left: 10px;
+}
+
+#title-img {
+    width: 75px;
+    margin-right: 10px;
+    background-color: var(--lightCrema);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#title-text {
+    font-family: 'Playfair Display';
+    font-weight: 600;
+    font-size: 40px;
+    max-width: 240px;
+    text-align: center;
+    line-height: 40px;
+    color: var(--lightCrema);
+}
+
+#add-button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1B3B2B;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+#add-button:hover {
+    background-color: #0b6136;
+}
+
+#main {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+    gap: 20px;
+}
+
+
+#products-list {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #e1a0683c;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow: auto;
+}
+
+.product-card {
+    margin-bottom: 20px;
+    background-color: #1B3B2B;
+    padding: 20px;
+    border-radius: 20px;
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    color: wheat;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.product-img-container {
+    max-width: 100px;
+    max-height: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C28E5F;
+}
+
+.product-img {
+    width: 100px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.product-description {
+    max-width: 170px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.product-tag {
+    background-color: #2f2f2f;
+    border-radius: 20px;
+    padding: 5px 20px;
+    max-width: 50px;
+    text-align: center;
+}
+
+#newProduct {
+    background-color: #3f6954;
+    width: 90%;
+    height: 70vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+#newProductForm {
+    background-color: var(--forestGreen);
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+}
+
+#newProductImg {
+    background-color: #0d3f26;
+    color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+}
+
+/* #newProductImg input {
+    display: none;
+} */
+
+#newProductImg label {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0d9250;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+}
+
+.productFears {
+    background-color: #2f2f2f;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.productFears input,
+.productFears textarea {
+    border-radius: 4px;
+    border: none;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+#tag {
+    width: 180px;
+    border-radius: 4px;
+    border: none;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+button{
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #0d9250;
+    font-weight: 800;
+    font-size: 15px;
+}

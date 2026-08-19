@@ -1,15 +1,11 @@
+import { addProduct } from "../db/queries.js"
+
 export const newProductGet = async (req, res) => {
     res.render('newProduct')
 }
 
 export const newProductPost = async (req, res) => {
-    res.send('hello post')
+    addProduct(req.body, req.file)
+    res.redirect('/')
 }
 
-export const updateProductGet = async (req, res) => {
-    res.send('hello update')
-}
-
-export const updateProductPost = async (req, res) => {
-    res.send('hello update')
-}

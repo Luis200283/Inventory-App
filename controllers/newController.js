@@ -5,7 +5,7 @@ export const newProductGet = async (req, res) => {
 }
 
 export const newProductPost = async (req, res) => {
-    addProduct(req.body, req.file)
+    console.log(req.body)
     res.redirect('/')
 }
 

@@ -71,7 +71,6 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 10px;
     background-color: var(--lightBeige);
 }
 
@@ -108,20 +107,6 @@ body {
     color: var(--lightCrema);
 }
 
-#add-button {
-    padding: 5px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #1B3B2B;
-    color: white;
-    font-size: 20px;
-    font-weight: 800;
-    text-decoration: none;
-}
-
-#add-button:hover {
-    background-color: #0b6136;
-}
 
 #main {
     display: flex;
@@ -130,75 +115,22 @@ body {
     gap: 20px;
 }
 
-
-#products-list {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #e1a0683c;
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    overflow: auto;
-}
-
-.product-card {
-    margin-bottom: 20px;
-    background-color: #1B3B2B;
-    padding: 20px;
-    border-radius: 20px;
-    list-style-type: none;
-    display: flex;
-    gap: 30px;
-    color: wheat;
-    max-width: 250px;
-    max-height: 250px;
-}
-
-.product-img-container {
-    max-width: 100px;
-    max-height: 200px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #C28E5F;
-}
-
-.product-img {
-    width: 100px;
-    height: 200px;
-    border-radius: 10px;
-}
-
-.product-description {
-    max-width: 170px;
-    height: 50px;
-    overflow: hidden;
-}
-
-.product-tag {
-    background-color: #2f2f2f;
-    border-radius: 20px;
-    padding: 5px 20px;
-    max-width: 50px;
-    text-align: center;
-}
-
 #newProduct {
     background-color: #3f6954;
     width: 90%;
-    height: 70vh;
+    overflow: hidden;
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 75vh;
+    gap: 20px;
+    border-radius: 20px;
 }
 
 form {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 #newProductForm {
@@ -208,11 +140,14 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     width: 300px;
+    padding: 25px;
+    gap: 10px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 #newProductImg {
+    padding: 0px 20px;
     background-color: #0d3f26;
     color: wheat;
     display: flex;
@@ -220,12 +155,12 @@ form {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 300px;
+    border-radius: 0px 20px 20px 0px;
 }
 
-/* #newProductImg input {
+#newProductImg input {
     display: none;
-} */
+}
 
 #newProductImg label {
     padding: 5px 15px;
@@ -234,20 +169,21 @@ form {
     background-color: #0d9250;
     color: white;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 900;
     text-decoration: none;
     text-align: center;
 }
 
 .productFears {
-    background-color: #2f2f2f;
-    padding: 10px;
+    background-color: #066143;
+    padding: 10px 20px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 5px;
+    gap: 15px;
+    max-width: 250px;
+    text-shadow: 1px 1px 10px black;
 }
 
 .productFears input,
@@ -256,6 +192,8 @@ form {
     border: none;
     padding: 5px 0px;
     text-align: center;
+    color: black;
+    font-family: 'Cinzel';
 }
 
 #tag {
@@ -264,9 +202,10 @@ form {
     border: none;
     padding: 5px 0px;
     text-align: center;
+    font-family: 'Cinzel';
 }
 
-button{
+button {
     padding: 4px 10px;
     border-radius: 5px;
     border: none;
@@ -274,4 +213,5 @@ button{
     background-color: #0d9250;
     font-weight: 800;
     font-size: 15px;
+    margin-top: 15px;
 }

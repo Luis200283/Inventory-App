@@ -1,7 +1,6 @@
 import { triggerAsyncId } from 'async_hooks';
 import express from 'express'
 import path from 'path'
-import { fileURLToPath } from 'url'
 import indexRouter from './routes/indexRouter.js'
 import newRouter from './routes/newRouter.js';
 import { sql } from './db/pool.js';

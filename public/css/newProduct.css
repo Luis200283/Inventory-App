@@ -4,7 +4,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: black;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -74,6 +74,10 @@ body {
     background-color: var(--lightBeige);
 }
 
+a {
+    text-decoration: none;
+}
+
 #header {
     display: flex;
     align-items: center;
@@ -118,14 +122,12 @@ body {
 #newProduct {
     background-color: #3f6954;
     width: 90%;
-    overflow: hidden;
+    padding: 5px 15px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
     gap: 20px;
-    border-radius: 20px;
 }
 
 form {
@@ -147,7 +149,7 @@ form {
 }
 
 #newProductImg {
-    padding: 0px 20px;
+    padding: 40px;
     background-color: #0d3f26;
     color: wheat;
     display: flex;
@@ -158,20 +160,72 @@ form {
     border-radius: 0px 20px 20px 0px;
 }
 
+@media (max-width: 660px) {
+    form {
+        flex-direction: column-reverse;
+        padding: 20px;
+    }
+
+    #newProductImg {
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    #newProductForm {
+        border-radius: 0px 0px 20px 20px;
+    }
+
+
+}
+
+
 #newProductImg input {
     display: none;
 }
 
 #newProductImg label {
-    padding: 5px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #0d9250;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border: 3px dashed #0d9250;
+    border-radius: 15px;
+    background-color: #0d3f26;
     color: white;
-    font-size: 20px;
-    font-weight: 900;
-    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 260px;
+    width: 100%;
+    min-height: 220px;
+}
+
+#newProductImg label:hover,
+#newProductImg label.dragover {
+    background-color: #066143;
+    border-color: #22d17f;
+    transform: scale(1.03);
+}
+
+#imgPreview {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--carmel);
+    background-color: var(--lightCrema);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+#imgText {
+    font-size: 14px;
+    font-weight: 600;
+    word-break: break-word;
+    max-width: 220px;
 }
 
 .productFears {
@@ -214,4 +268,8 @@ button {
     font-weight: 800;
     font-size: 15px;
     margin-top: 15px;
+}
+
+#delete{
+    background-color: rgb(174, 10, 10);
 }

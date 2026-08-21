@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/newProduct.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <title>Inventory App</title>
+</head>
+
+<body>
+    <header id="header">
+        <a href="/">
+            <div id="title">
+                <img id="title-img" src="/icons/guitarras.svg" alt="">
+                <div id="title-text">Allegro <br>Store</div>
+            </div>
+        </a>
+        <div id="ham-menu">
+            <img src="/icons/clave.png" alt="">
+        </div>
+    </header>
+    <br>
+    <div id="newProduct">
+        <Form method="post" action="/new/update/<%= product.id %>" enctype="multipart/form-data">
+            <input type="hidden" name="imgPath" value="<%= product.imgPath %>">
+            <div id="newProductForm">
+                <div class="productFears">
+                    <Label for="product_name">Product Name</Label>
+                    <input type="Text" name="product" id="product_name" placeholder="Electric guitar"
+                        value="<%= product.product_name %>">
+                </div>
+                <div class="productFears">
+                    <Label for="color">Color</Label>
+                    <input type="Text" name="color" id="color" placeholder="red" value="<%= product.color %>">
+                </div>
+                <div class="productFears">
+                    <Label for="brand">Brand</Label>
+                    <input type="Text" name="brand" id="brand" placeholder="Fender" value="<%= product.brand %>">
+                </div>
+                <div class="productFears">
+                    <Label for="price">Price</Label>
+                    <input type="number" name="price" id="price" placeholder="0" value="<%= product.price %>">
+                </div>
+                <div class="productFears">
+                    <Label for="description">Description</Label>
+                    <textarea name="description" id="decription"
+                        placeholder="this is a clasisc guitar"><%= product.description %></textarea>
+                </div>
+                <div class="productFears">
+                    <label for="colores">Tag</label>
+                    <select name="tag" id="tag">
+                        <option value="guitar" <%=product.tag==='guitar' ? 'selected' : '' %> >guitar</option>
+                        <option value="piano" <%=product.tag==='piano' ? 'selected' : '' %> >piano</option>
+                        <option value="Drum" <%=product.tag==='Drum' ? 'selected' : '' %> >Drum</option>
+                        <option value="Bass" <%=product.tag==='Bass' ? 'selected' : '' %> >Bass</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit">Update Product +</button>
+                    <button id="delete">Delete Product x</button>
+                </div>
+            </div>
+            <div id="newProductImg">
+                <label for="productImg" id="imgLabel">
+                    <img id="imgPreview" src="<%= product.imgPath %>" alt="Preview">
+                    <span id="imgText">📤 Subir Imagen</span>
+                </label>
+                <input type="file" name="productImg" id="productImg" accept="image/*">
+            </div>
+        </Form>
+    </div>
+
+    <script>
+        const productImg = document.getElementById('productImg');
+        const imgPreview = document.getElementById('imgPreview');
+        const imgLabel = document.getElementById('imgLabel');
+        const imgText = document.getElementById('imgText');
+        const deleteBtn = document.getElementById('delete');
+
+        deleteBtn.addEventListener('click', () => {
+            fetch('/new/delete/<%= product.id%>', { method: 'delete' })
+        })
+
+        const existingPath = '<%= product.imgPath %>';
+        if (existingPath) {
+            imgPreview.src = existingPath;
+            imgPreview.style.opacity = '1';
+            imgText.textContent = existingPath.split('/').pop();
+        }
+
+        const showPreview = (file) => {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                imgPreview.src = ev.target.result;
+                imgPreview.style.opacity = '1';
+                imgText.textContent = file.name;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        productImg.addEventListener('change', (e) => {
+            showPreview(e.target.files[0]);
+        });
+
+        imgLabel.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imgLabel.classList.add('dragover');
+        });
+
+        imgLabel.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            imgLabel.classList.remove('dragover');
+        });
+
+        imgLabel.addEventListener('drop', (e) => {
+            e.preventDefault();
+            imgLabel.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const dt = new DataTransfer();
+                dt.items.add(file);
+                productImg.files = dt.files;
+                showPreview(file);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

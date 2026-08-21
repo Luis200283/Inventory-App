@@ -9,17 +9,19 @@
 
 <body>
     <header id="header">
-        <div id="title">
-            <img id="title-img" src="/icons/guitarras.svg" alt="">
-            <div id="title-text">Allegro <br>Store</div>
-        </div>
+        <a href="/">
+            <div id="title">
+                <img id="title-img" src="/icons/guitarras.svg" alt="">
+                <div id="title-text">Allegro <br>Store</div>
+            </div>
+        </a>
         <div id="ham-menu">
             <img src="/icons/clave.png" alt="">
         </div>
     </header>
     <br>
     <div id="newProduct">
-        <Form method="post" action="/new">
+        <Form method="post" action="/new" enctype="multipart/form-data">
             <div id="newProductForm">
                 <div class="productFears">
                     <Label for="product_name">Product Name</Label>
@@ -39,10 +41,10 @@
                 </div>
                 <div class="productFears">
                     <Label for="description">Description</Label>
-                    <textarea name="description" id="decripcion" placeholder="this is a clasisc guitar"></textarea>
+                    <textarea name="description" id="decription" placeholder="this is a clasisc guitar"></textarea>
                 </div>
                 <div class="productFears">
-                    <label for="colores">Tag:</label>
+                    <label for="colores">Tag</label>
                     <select name="tag" id="tag">
                         <option value="guitar">guitar</option>
                         <option value="piano">piano</option>
@@ -53,11 +55,58 @@
                 <button type="submit">Add Product +</button>
             </div>
             <div id="newProductImg">
-                <label for="productImg">📤 <br> Subir Imagen</label>
-                <input type="file" name="productImg" id="productImg" required>
+                <label for="productImg" id="imgLabel">
+                    <img id="imgPreview" src="/icons/icon.png" alt="Preview">
+                    <span id="imgText">📤 Subir Imagen</span>
+                </label>
+                <input type="file" name="productImg" id="productImg" accept="image/*" required>
             </div>
         </Form>
     </div>
+
+    <script>
+        const productImg = document.getElementById('productImg');
+        const imgPreview = document.getElementById('imgPreview');
+        const imgLabel = document.getElementById('imgLabel');
+        const imgText = document.getElementById('imgText');
+
+        const showPreview = (file) => {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                imgPreview.src = ev.target.result;
+                imgPreview.style.opacity = '1';
+                imgText.textContent = file.name;
+            };
+            reader.readAsDataURL(file);
+        };
+
+        productImg.addEventListener('change', (e) => {
+            showPreview(e.target.files[0]);
+        });
+
+        imgLabel.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imgLabel.classList.add('dragover');
+        });
+
+        imgLabel.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            imgLabel.classList.remove('dragover');
+        });
+
+        imgLabel.addEventListener('drop', (e) => {
+            e.preventDefault();
+            imgLabel.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const dt = new DataTransfer();
+                dt.items.add(file);
+                productImg.files = dt.files;
+                showPreview(file);
+            }
+        });
+    </script>
 
 </body>
 

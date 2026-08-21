@@ -22,6 +22,31 @@ export async function getFilteresData(query) {
     `;
 }
 
-export async function addProduct(productFears, productImg) {
-    console.log(productFears)
+export async function addProduct({ product, color, brand, price, description, tag, imgPath }) {
+    return await sql`
+        INSERT INTO products (product_name, color, brand, price, description, tag, "imgPath")
+        VALUES (${product}, ${color}, ${brand}, ${price}, ${description}, ${tag}, ${imgPath})
+        RETURNING *
+    `;
+}
+
+export async function getProduct(id) {
+    return await sql`SELECT * FROM products WHERE id = ${id}`
+}
+
+export async function updateProduct({ id, product, color, brand, price, description, tag, imgPath }) {
+    return await sql` UPDATE products 
+        SET product_name = ${product},
+        color = ${color},
+        brand = ${brand}, 
+        price = ${price},
+        description = ${description}, 
+        tag = ${tag}, 
+        "imgPath" = ${imgPath}
+        WHERE id = ${id};
+    `;
+}
+
+export async function deleteProduct(id) {
+    return await sql`DELETE FROM products WHERE id = ${id}`
 }

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev:server": "nodemon -e js,ejs app.js",
-    "dev:browser": "browser-sync start --proxy 'localhost:3000' --files 'views/**/*' 'public/**/*'",
+    "dev:browser": "browser-sync start --proxy 'localhost:3000' --port 3001 --files 'views/**/*' 'public/**/*'",
     "dev": "npm-run-all --parallel dev:server dev:browser"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
+    "multer": "^2.2.0",
     "pq": "^0.0.3"
   },
   "devDependencies": {
